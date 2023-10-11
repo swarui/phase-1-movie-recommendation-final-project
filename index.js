@@ -146,30 +146,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const movieCard = document.createElement("div");
     movieCard.classList.add("movie-card");
     movieCard.id = `movie-${movie.id}`;
-
+  
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("image-container");
+  
+    const image = document.createElement("img");
+    image.src = IMG_URL + movie.poster_path;
+    image.alt = movie.title;
+  
+    const movieDetails = document.createElement("div");
+    movieDetails.classList.add("movie-details");
+  
     const title = document.createElement("h3");
     title.textContent = movie.title;
-
-    const image = document.createElement("img");
-    image.src = IMG_URL + movie.poster_path; // Fixed variable name to IMG_URL
-    image.alt = movie.title;
-
+  
+    const overview = document.createElement("p");
+    overview.textContent = movie.overview;
+  
+    movieDetails.appendChild(title);
+    movieDetails.appendChild(overview);
+  
+    imageContainer.appendChild(image);
+    imageContainer.appendChild(movieDetails);
+  
     const likeButton = document.createElement("button");
     likeButton.textContent = "Like";
     likeButton.addEventListener("click", () => {
       likeMovie(movie.id);
     });
-
-    movieCard.appendChild(title);
-    movieCard.appendChild(image);
+  
+    movieCard.appendChild(imageContainer);
     movieCard.appendChild(likeButton);
-
+  
     movieCard.addEventListener("click", () => {
       fetchMovieDetails(movie.id);
     });
-
+  
     return movieCard;
   };
+  
 
   // Fetch movie details
   const fetchMovieDetails = (movieId) => {

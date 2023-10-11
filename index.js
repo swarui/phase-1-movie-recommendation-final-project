@@ -13,3 +13,13 @@ function fetchMovies(url){
     .then(data => displayMovies(data.results))
     .catch(error => console.log('Error:,error'))
 }
+
+// Show the respective movies on my page
+const displayMovies = movies => {
+    const movieList = document.getElementById('movie-list');
+    movieList.innerHTML = ''; // Executes or removes the previous movie list
+    movies.forEach(movie =>{
+        const movieCard = createMovieCard(movie);
+        movieList.appendChild(movieCard);
+        });  
+    };

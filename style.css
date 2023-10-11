@@ -1,22 +1,39 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 @font-face {
-    font-family: Poppins Bold;
-    src: url(./fonts/Poppins-Bold.otf);
+  font-family: Poppins Bold;
+  src: url(./fonts/Poppins-Bold.otf);
 }
 @font-face {
-    font-family: Futura;
-    src: url(./fonts/Futura\ Heavy\ font.ttf);
+  font-family: Futura;
+  src: url(./fonts/Futura\ Heavy\ font.ttf);
 }
 /* Style my header */
-header h1{
-    padding: 30px;
+header h1 {
+  padding: 30px;
 }
-#search-form{
-    float: right;
-    margin-right: 40%;
-    margin-top: -50px;
+/* Position the search form */
+#search-form {
+  float: right;
+  margin-right: 40%;
+  margin-top: -50px;
+}
+/* Placement and arrangement of the movies */
+#movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.movie-card {
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+.movie-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }

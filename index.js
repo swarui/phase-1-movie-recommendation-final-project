@@ -47,9 +47,18 @@ const createMovieCard = (movie) => {
   movieCard.appendChild(image);
   movieCard.appendChild(likeButton);
 
-  movieCard.addEventListener('click', () =>{
+  movieCard.addEventListener("click", () => {
     fetchMovieDetails(movie.id);
   });
 
-  return movieCard
+  return movieCard;
+};
+
+// Fetch movie details
+const fetchMovieDetails = (movieId) => {
+  const detailsUrl = `https://api.themoviedb.org/3 ${movieId}api_key=988e17afa010ca134f38ace964916dd5`;
+  fetch(detailsUrl)
+    .then((response) => response.json())
+    .then((data) => displayMovieDetails(data))
+    .catch((error) => console.log("Error:", error));
 };

@@ -62,3 +62,76 @@ const fetchMovieDetails = (movieId) => {
     .then((data) => displayMovieDetails(data))
     .catch((error) => console.log("Error:", error));
 };
+
+//Display movie details
+const displayMovieDetails = (movie) => {
+  const movieInfo = document.getElementById("movie-info");
+  movieInfo.innerHTML = "";
+
+  const title = document.createElement("h3");
+  title.textContent = movie.title;
+
+  const overview = document.createElement("p");
+  overview.textContent = movie.overview;
+
+  movieInfo.appendChild(title);
+  movieInfo.appendChild(overview);
+};
+
+//  Like the movie
+const likeMovie = movieId =>{
+    // Make a post request to your server to like it
+    fetch(LIKE_API, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({movieId: movieId})
+
+})
+.then(response => response.json())
+.then(data => {
+    // Update the likes on the selected movie
+    const movieCard = document.getElementById(`movie-${movieId}`);
+    const likeButton = movieCard.querySelector('button');
+    likeButton.textContent = `Liked (${data.likes})`;
+
+})
+.catch(error => console.log('Error:', error));
+};
+
+// Event listener for form submission
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+
+searchForm.addEventListener('submit', e =>{
+    e.preventDefault();
+    const searchTerm = searchInput.ariaValueMax.trim();
+    if(searchTerm){
+        const searchURL = SEARCH_API + searchTerm;
+        fetchMovies(searchUrl);
+
+    }
+    searchInput.value = '';
+});
+
+//Event listener for form submission to add a comment for the movie watched
+const commentForm = document.getElementById('comment-form');
+const  commentInput = document.getElementById('comment');
+const commentList = document.getElementById('comments');
+
+commentForm.addEventListener('submit', e =>{
+    e.preventDefault();
+    const comment = commentInput.value.trim();
+    if(comment){
+        addComment(comment);
+        commentInput.value = '';
+    }
+});
+
+// Add a comment for a review after watching the movie
+const addComment = comment =>{
+    const commentItem = document.createElement('div');
+    commentItem.textContent = comment;
+    commentList.appendChild(commentItem);
+};

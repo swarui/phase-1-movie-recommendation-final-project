@@ -23,6 +23,41 @@ document.addEventListener("DOMContentLoaded", () => {
       movieList.appendChild(movieCard);
     });
   };
+  // Fetch and display the list of genres
+const fetchGenres = () => {
+  const genresUrl = `${BASE_URL}/genre/movie/list?${API_KEY}`;
+  fetch(genresUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      const genres = data.genres;
+      console.log("Available Genres:");
+      genres.forEach((genre) => {
+        console.log(`${genre.id}: ${genre.name}`);
+        createGenreButton(genre.id, genre.name);
+      });
+    })
+    .catch((error) => console.log("Error:", error));
+};
+// Fetch movies by genre
+const fetchMoviesByGenre = (genreId) => {
+  const genreUrl = `${BASE_URL}/discover/movie?${API_KEY}&with_genres=${genreId}`;
+  fetchMovies(genreUrl);
+};
+
+
+// Create genre buttons
+const createGenreButton = (genreId, genreName) => {
+  const genreButton = document.createElement("button");
+  genreButton.textContent = genreName;
+  genreButton.addEventListener("click", () => {
+    fetchMoviesByGenre(genreId);
+  });
+  document.getElementById("genre-buttons").appendChild(genreButton);
+};
+
+// Call the fetchGenres function to retrieve the list of genres
+fetchGenres();
+
 
   // Movie card
   const createMovieCard = (movie) => {
@@ -273,6 +308,8 @@ fetchMoviesByGenre(10749); // Genre ID for Romance
 thrillerButton.addEventListener("click", () => {
 fetchMoviesByGenre(53); // Genre ID for Thriller
 });
+
+// Add typescript to my Movie title
 
 
 // Handling Page Load Event

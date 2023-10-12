@@ -49,11 +49,14 @@ const fetchMoviesByGenre = (genreId) => {
 const createGenreButton = (genreId, genreName) => {
   const genreButton = document.createElement("button");
   genreButton.textContent = genreName;
+  genreButton.className = "button";
   genreButton.addEventListener("click", () => {
     fetchMoviesByGenre(genreId);
   });
   document.getElementById("genre-buttons").appendChild(genreButton);
 };
+//Add hover effect
+
 
 // Call the fetchGenres function to retrieve the list of genres
 fetchGenres();

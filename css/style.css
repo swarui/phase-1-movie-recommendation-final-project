@@ -28,8 +28,11 @@ header h1 {
   font-size: 40px;
   display: flex;
   justify-content: center;
+  color: bisque;
+  background-color: #081b29;
+  border-radius: 5px;
 }
-span{
+span {
   color: rgb(13, 58, 53);
 }
 /* Position the search form */
@@ -90,7 +93,7 @@ span{
   font-family: Futura;
   border: 2px solid black;
   border-radius: 20px;
-  margin-top:60px ;
+  margin-top: 60px;
 }
 
 /* style the buy ticket button */
@@ -105,4 +108,21 @@ span{
 }
 #submit-btn:hover {
   background-color: blueviolet;
+}
+
+/* Style for genre buttons */
+.button {
+  font-family: Futura;
+  background-color: rgb(43, 92, 226);
+  color: black;
+  border: 2px solid black;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+/* Hover effect on the buttons*/
+.button:hover {
+  background-color: #0056b3;
 }

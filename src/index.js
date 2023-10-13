@@ -95,15 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.appendChild(image);
     imageContainer.appendChild(movieDetails);
 
-    const likeButton = document.createElement("button");
-    likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Using an example Font Awesome icon
-    likeButton.className = "like-button";
-    likeButton.addEventListener("click", () => {
-      likeMovie(movie.id);
-    });
-
     movieCard.appendChild(imageContainer);
-    movieCard.appendChild(likeButton);
 
     movieCard.addEventListener("mouseover", () => {
       showTooltip(movie.title);
@@ -142,46 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     movieInfo.appendChild(title);
     movieInfo.appendChild(overview);
-  };
-
-  // Like the movie
-  const likeMovie = (movieId) => {
-    // Make a post request to your server to like it
-    fetch(LIKE_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ movieId: movieId }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Update the likes on the selected movie
-        const movieCard = document.getElementById(`movie-${movieId}`);
-        const likeButton = movieCard.querySelector("button");
-        likeButton.textContent = `Liked (${data.likes})`;
-      })
-      .catch((error) => console.log("Error:", error));
-  };
-  const unlikeMovie = (movieId) => {
-    // Send a POST request to the server to unlike the movie
-    fetch("/unlike", {
-      // Replace with the actual endpoint on your server
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ movieId: movieId }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Update the likes on the selected movie
-        const movieCard = document.getElementById(`movie-${movieId}`);
-        const likeButton = movieCard.querySelector("button");
-        likeButton.textContent = `Like (${data.likes})`;
-        likeButton.disabled = true; // Disable the button to prevent multiple unlikes
-      })
-      .catch((error) => console.log("Error:", error));
   };
 
   // Event listener for form submission

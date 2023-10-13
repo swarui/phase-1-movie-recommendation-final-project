@@ -4,12 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(
-    87.4deg,
-    rgb(255, 241, 165) 1.9%,
-    rgb(200, 125, 76) 49.7%,
-    rgb(83, 54, 54) 100.5%
-  );
+  background: linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
 }
 @font-face {
   font-family: Poppins Bold;
@@ -133,7 +128,7 @@ span {
   transform: translateY(0);
 }
 /* Update the tooltip to target movie details */
-.movie-details .tooltip {
+/* .movie-details .tooltip {
   position: absolute;
   top: 0;
   left: 0;
@@ -142,7 +137,7 @@ span {
   padding: 5px;
   border-radius: 5px;
   font-size: 14px;
-  z-index: 9999;
+  z-index: 9999; 
 }
 /* Change the rating appearance */
 .rating {
@@ -153,6 +148,6 @@ span {
   border: none;
   cursor: pointer;
   font-size: 20px; 
-  color: #007bff; 
+  color: #426994; 
   padding-right: 80%;
 }

@@ -113,13 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Fetch movie details
-  const fetchMovieDetails = (movieId) => {
-    const detailsUrl = `${BASE_URL}/movie/${movieId}?${API_KEY}`;
-    fetch(detailsUrl)
-      .then((response) => response.json())
-      .then((data) => displayMovieDetails(data))
-      .catch((error) => console.log("Error:", error));
-  };
+const fetchMovieDetails = (movieId) => {
+  const detailsUrl = `${BASE_URL}/movie/${movieId}?${API_KEY}`;
+  fetch(detailsUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      // Instead of displaying the details, you can update the tooltip message
+      const movieTitle = data.title;
+      showTooltip(movieTitle);
+    })
+    .catch((error) => console.log("Error:", error));
+};
 
   // Display movie details
   const displayMovieDetails = (movie) => {
@@ -154,19 +158,3 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchMovies(API_URL);
 });
 
-// Show tooltip
-const showTooltip = (message) => {
-  const tooltip = document.createElement("div");
-  tooltip.classList.add("tooltip");
-  tooltip.textContent = message;
-
-  document.body.appendChild(tooltip);
-};
-
-// Hide tooltip
-const hideTooltip = () => {
-  const tooltip = document.querySelector(".tooltip");
-  if (tooltip) {
-    tooltip.remove();
-  }
-};

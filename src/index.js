@@ -2,7 +2,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const API_KEY = "api_key=988e17afa010ca134f38ace964916dd5";
   const BASE_URL = "https://api.themoviedb.org/3";
-  const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
+  const API_URL =
+    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
   const IMG_URL = "https://image.tmdb.org/t/p/w500";
   const searchURL = BASE_URL + "/search/movie?" + API_KEY;
 
@@ -61,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchGenres();
 
   // Movie card
-  
 
   const createMovieCard = (movie) => {
     const movieCard = document.createElement("div");
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = movie.title;
 
     const rating = document.createElement("p");
-    rating.textContent = `Rating: ${movie.vote_average}`; 
-    rating.classList.add("rating")
+    rating.textContent = `Rating: ${movie.vote_average}`;
+    rating.classList.add("rating");
 
     const overview = document.createElement("p");
     overview.textContent = movie.overview;
@@ -96,7 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.appendChild(movieDetails);
 
     const likeButton = document.createElement("button");
-    likeButton.textContent = "Like";
+    likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Using an example Font Awesome icon
+    likeButton.className = "like-button";
     likeButton.addEventListener("click", () => {
       likeMovie(movie.id);
     });
@@ -141,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     movieInfo.appendChild(title);
     movieInfo.appendChild(overview);
-    
   };
 
   // Like the movie
@@ -160,6 +160,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const movieCard = document.getElementById(`movie-${movieId}`);
         const likeButton = movieCard.querySelector("button");
         likeButton.textContent = `Liked (${data.likes})`;
+      })
+      .catch((error) => console.log("Error:", error));
+  };
+  const unlikeMovie = (movieId) => {
+    // Send a POST request to the server to unlike the movie
+    fetch("/unlike", {
+      // Replace with the actual endpoint on your server
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ movieId: movieId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Update the likes on the selected movie
+        const movieCard = document.getElementById(`movie-${movieId}`);
+        const likeButton = movieCard.querySelector("button");
+        likeButton.textContent = `Like (${data.likes})`;
+        likeButton.disabled = true; // Disable the button to prevent multiple unlikes
       })
       .catch((error) => console.log("Error:", error));
   };

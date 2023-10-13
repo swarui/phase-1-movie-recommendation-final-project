@@ -4,38 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Haven</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <!-- Link my html to my css -->
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <header>
-        <main>
-      <h1>Movie Haven</h1>
+      <h1>Movie &nbsp;<span> Haven</span></h1>
       <form id="search-form">
         <input type="text" id="search-input" placeholder="Input movie title" />
-        <button id="submit-btn">Search </button>
+        <button id="submit-btn">Search</button>
+        <!--  Adds a search movie button -->
       </form>
-    
-    
-
-      <!-- Have different buttons to select a genre of movie that i want -->
       <div id="genre-buttons">
-         <button id="romance-button"></button>
-        <button id="thriller-button"></button> 
-      </div></header>
-        <section class="movies">
-            <!-- <h2>Recommended movies </h2> -->
-            <div id="movie-list"></div>
-        </section>
-        <section class="movie-details">
-            <!-- <h2>Movie Details</h2> -->
-            <div id="movie-info"></div>
-            
-        </section>
-        
-
-        
+        <!-- <button id="romance-button">Romance</button>
+        <button id="thriller-button">Thriller</button> -->
+      </div>
+    </header>
+    <main>
+      <section class="movies">
+        <div id="movie-list"></div>
+      </section>
+      <section class="movie-details">
+        <div id="movie-info"></div>
+      </section>
     </main>
     <script src="./src/index.js"></script>
   </body>

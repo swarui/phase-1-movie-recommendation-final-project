@@ -27,8 +27,8 @@ header h1 {
   background-color: #081b29;
   border-radius: 5px;
 }
-span {
-  color: rgb(13, 58, 53);
+h1 span {
+  color: rgb(83, 212, 212);
 }
 /* Position the search form */
 #search-form {
@@ -127,19 +127,7 @@ span {
   background-color: rgb(43, 92, 226);
   transform: translateY(0);
 }
-/* Update the tooltip to target movie details */
-/* .movie-details .tooltip {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 14px;
-  z-index: 9999; 
-}
-/* Change the rating appearance */
+
 .rating {
   color: #ff6600;
 }

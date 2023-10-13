@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = movie.title;
 
     const rating = document.createElement("p");
-    rating.textContent = `Rating: ${movie.vote_average}`;
+    rating.textContent = `Rating: ${movie.vote_average} `;
     rating.classList.add("rating");
 
     const overview = document.createElement("p");

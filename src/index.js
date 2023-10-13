@@ -153,7 +153,7 @@ const fetchMovieDetails = (movieId) => {
     }
     searchInput.value = "";
   });
-
+ 
   // Handling Page Load Event
   fetchMovies(API_URL);
 });

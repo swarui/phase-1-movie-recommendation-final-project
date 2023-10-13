@@ -4,7 +4,11 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
+  background: linear-gradient(
+    109.6deg,
+    rgb(43, 1, 91) 13.4%,
+    rgb(122, 2, 54) 100.2%
+  );
 }
 @font-face {
   font-family: Poppins Bold;
@@ -115,10 +119,15 @@ h1 span {
   color: black;
   border: 2px solid black;
   padding: 5px 10px;
-  margin: 5px;
+  margin: 8px;
   cursor: pointer;
   border-radius: 20px;
   transition: 0.3s;
+}
+/* Positions the genre movies buttons */
+#genre-buttons {
+  display: inline-block;
+  margin-top: 20px;
 }
 
 /* Hover effect on the buttons*/
@@ -131,11 +140,14 @@ h1 span {
 .rating {
   color: #ff6600;
 }
-.like-button {
+/* .like-button {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 20px; 
-  color: #426994; 
+  font-size: 20px;
+  color: #426994;
   padding-right: 80%;
+} */
+#comment-form {
+  display: flex;
 }

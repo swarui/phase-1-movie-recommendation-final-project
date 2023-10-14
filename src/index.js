@@ -88,9 +88,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const overview = document.createElement("p");
     overview.textContent = movie.overview;
 
+    const comments = document.createElement("textarea");
+    comments.placeholder = "Add your comments...";
+    comments.classList.add("comments");
+
+    const submitButton = document.createElement("button");
+    submitButton.textContent = "Submit";
+    submitButton.className = "button";
+    
+    // Create a message element to display the "Thank You" message
+    const messageElement = document.createElement("p");
+    messageElement.id = "message";
+
+    // Event listener for submit button
+    submitButton.addEventListener("click", () => {
+      const comment = comments.value.trim();
+      if (comment) {
+        console.log(`Submitted comment: ${comment}`);
+        messageElement.textContent = "Thank You!"; // Update the message element's content
+        comments.value = ""; // Clear the textarea after submission
+      }
+    });
+
     movieDetails.appendChild(title);
     movieDetails.appendChild(rating);
     movieDetails.appendChild(overview);
+    movieDetails.appendChild(comments);
+    movieDetails.appendChild(submitButton);
+    movieDetails.appendChild(messageElement); // Append the message element to the movie details
 
     imageContainer.appendChild(image);
     imageContainer.appendChild(movieDetails);
@@ -113,17 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Fetch movie details
-const fetchMovieDetails = (movieId) => {
-  const detailsUrl = `${BASE_URL}/movie/${movieId}?${API_KEY}`;
-  fetch(detailsUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      // Instead of displaying the details, you can update the tooltip message
-      const movieTitle = data.title;
-      showTooltip(movieTitle);
-    })
-    .catch((error) => console.log("Error:", error));
-};
+  const fetchMovieDetails = (movieId) => {
+    const detailsUrl = `${BASE_URL}/movie/${movieId}?${API_KEY}`;
+    fetch(detailsUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        // Instead of displaying the details, you can update the tooltip message
+        const movieTitle = data.title;
+        showTooltip(movieTitle);
+      })
+      .catch((error) => console.log("Error:", error));
+  };
 
   // Display movie details
   const displayMovieDetails = (movie) => {
@@ -153,8 +178,7 @@ const fetchMovieDetails = (movieId) => {
     }
     searchInput.value = "";
   });
- 
+
   // Handling Page Load Event
   fetchMovies(API_URL);
 });
-

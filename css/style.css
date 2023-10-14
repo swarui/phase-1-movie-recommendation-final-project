@@ -151,3 +151,26 @@ h1 span {
 #comment-form {
   display: flex;
 }
+.comments {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #522020;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.button {
+  font-family: Futura;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

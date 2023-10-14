@@ -55,7 +55,8 @@ The following have been used on this project:
 ![How my web looks 1](https://github.com/swarui/phase-1-movie-recommendation-final-project/assets/135341074/734a9bb4-b810-4729-a34b-6651f0cfc538)
 ![How my web looks 2](https://github.com/swarui/phase-1-movie-recommendation-final-project/assets/135341074/ac97d8e6-cc33-4dc6-b6d7-3dcc13c369f0)
 
-- ##
+- Commenting on the recommended movie
+  
 
 ## CONTRIBUTING
 

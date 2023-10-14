@@ -80,6 +80,7 @@ h1 span {
   padding: 10px;
   background-color: white;
   color: blue;
+  
   transform: translateY(100%);
   transition: transform 0.3s ease;
 }
@@ -115,7 +116,7 @@ h1 span {
 /* Style for genre buttons */
 .button {
   font-family: Futura;
-  background-color: #1f87f5;
+  background-color: rgb(43, 92, 226);;
   color: black;
   border: 2px solid black;
   padding: 5px 10px;
@@ -123,6 +124,7 @@ h1 span {
   cursor: pointer;
   border-radius: 20px;
   transition: 0.3s;
+  border: 1px solid black;
 }
 /* Positions the genre movies buttons */
 #genre-buttons {
@@ -133,7 +135,7 @@ h1 span {
 /* Hover effect on the buttons*/
 
 .button:hover {
-  background-color: rgb(43, 92, 226);
+  background-color: #1f87f5;
   transform: translateY(0);
 }
 
@@ -163,7 +165,7 @@ h1 span {
 
 .button {
   font-family: Futura;
-  padding: 10px 20px;
+  padding: 8px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;

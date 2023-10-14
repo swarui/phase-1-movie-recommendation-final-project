@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     movieDetails.appendChild(overview);
     movieDetails.appendChild(comments);
     movieDetails.appendChild(submitButton);
-    movieDetails.appendChild(messageElement); // Append the message element to the movie details
+    movieDetails.appendChild(messageElement); 
 
     imageContainer.appendChild(image);
     imageContainer.appendChild(movieDetails);

@@ -59,6 +59,8 @@ The following have been used on this project:
 ![writes a comment](https://github.com/swarui/phase-1-movie-recommendation-final-project/assets/135341074/c20d5b7a-095c-448e-9b51-94daa6afb329)
 ![Webpage comments submission](https://github.com/swarui/phase-1-movie-recommendation-final-project/assets/135341074/5af2691c-a8db-4fc4-ae51-a6a1b619edc4)
 
+## link to the website
+https://swarui.github.io/phase-1-movie-recommendation-final-project/
 
 ## CONTRIBUTING
 
